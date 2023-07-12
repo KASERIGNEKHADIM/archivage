@@ -10,7 +10,7 @@
 <div class="col-md-6 mx-auto shadow p-4">
     <div class=" mb-3">
         <label for="" class="form-label">Nom :  </label>
-          <input type="text" class="form-control" name="nom" id="nom">
+          <input type="text" class="form-control" name="nom" id="nom" >
     </div>
     <div class=" mb-3">
         <label for="" class="form-label">Prenom :</label>
