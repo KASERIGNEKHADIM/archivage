@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -15,7 +15,7 @@
         @foreach ($nationalites as $n)
         <tr>
             <th scope="row">{{$n->id}}</th>
-            <td>{{$n->nom}}</td>
+            <td>{{$n->nationalite}}</td>
 
             <td>
                 <a href="{{url('nationalites/' .$n->id)}}" class="btn btn-success">Consulter</a>
@@ -29,7 +29,7 @@
                         confirmButtonText: 'Cool'
                       })" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-                <a href="{{ route('nationalites.edit', ['id'=>$n->id]) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ route('nationalites.edit',$n->id) }}" class="btn btn-warning">Editer</a>
             </td>
         </tr>
         @endforeach

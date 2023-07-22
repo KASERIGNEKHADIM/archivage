@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Niveau extends Model
 {
     use HasFactory;
-    protected $fillable = ['libelle'];
-    public function etudiant(): HasMany
+    protected $fillable = ['libelle','annee_scolaire'];
+    public function etudiants(): HasMany
     {
         return $this->hasMany(Etudiant::class);
     }

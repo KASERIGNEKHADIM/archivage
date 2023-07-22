@@ -13,9 +13,9 @@ class NationaliteController extends Controller
     public function index()
     {
         //
-        $titre="liste des nationalités";
         $nationalites=Nationalite::all();
-        return view('nationalites.index', compact("titre", "nationalites"));
+        $titre='Listes des nationalites';
+        return view('nationalites.index',compact('nationalites','titre'));
 
     }
 
@@ -25,9 +25,9 @@ class NationaliteController extends Controller
     public function create()
     {
         //
-        $titre='ajouter une nationalité';
+        $titre='Ajouter une nationalité';
         $nationalites=Nationalite::all();
-        return view('nationalites.create',compact("titre","nationalites"));
+        return view('nationalites.create',compact('titre','nationalites'));
 
     }
 
@@ -37,6 +37,8 @@ class NationaliteController extends Controller
     public function store(Request $request)
     {
         //
+        $nationalites=Nationalite::create($request->all());
+        return redirect()->route('nationalites.index');
     }
 
     /**
@@ -45,6 +47,9 @@ class NationaliteController extends Controller
     public function show(string $id)
     {
         //
+        $nationalites=Nationalite::find($id);
+        $titre='Détails de l Nationalite';
+        return view('nationalites.show',compact('Nationalites','titre'));
     }
 
     /**
@@ -53,6 +58,9 @@ class NationaliteController extends Controller
     public function edit(string $id)
     {
         //
+        $nationalites=Nationalite::find($id);
+        $titre='Modifier l Nationalite';
+        return view('nationalites.edit',compact('nationalites','titre'));
     }
 
     /**
@@ -61,6 +69,9 @@ class NationaliteController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $nationalitesationalites=Nationalite::find($id);
+        $nationalites->update($request->all());
+        return redirect()->route('nationalites.index');
     }
 
     /**
@@ -69,5 +80,8 @@ class NationaliteController extends Controller
     public function destroy(string $id)
     {
         //
+        $nationalites=Nationalite::find($id);
+        $nationalites->delete();
+        return redirect()->route('nationalites.index');
     }
 }

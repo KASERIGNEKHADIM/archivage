@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -8,6 +8,7 @@
     <li>Prenom : {{$etudiant->prenom}} </li>
     <li>Email : {{$etudiant->email}} </li>
     <li>Telephone : {{$etudiant->telephone}} </li>
-    <li>Niveau : {{$etudiant->niveau_etude}} </li>
+    <li>document : {{$document->nom}} </li>
+
 </ul>
 @endsection

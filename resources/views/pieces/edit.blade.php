@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
     {{$titre}}
 @endsection
@@ -14,14 +14,20 @@
             </ul>
         </div>
     @endif
-        <form method="post" action="{{ route('niveaux.update', ['id' => $niveau->id]) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('pieces.update', $piece->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="libelle" class="form-label">Nom : </label>
-                <input value="{{$niveau->libelle}}" type="text" name="libelle" class="form-control" id="libelle"
+                <label for="libelle" class="form-label">Libelle : </label>
+                <input value="{{$piece->libelle}}" type="text" name="libelle" class="form-control" id="libelle"
                     aria-describedby="emailHelp">
             </div>
+            <div class="mb-3">
+                <label for="libelle" class="form-label">Description : </label>
+                <input value="{{$piece->description}}" type="text" name="description" class="form-control" id="libelle"
+                    aria-describedby="emailHelp">
+            </div>
+
             <button type="submit" class="btn btn-primary">Modifier</button>
         </form>
     </div>

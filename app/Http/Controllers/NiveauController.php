@@ -73,7 +73,7 @@ class NiveauController extends Controller
         //
         $niveaux=Niveau::find($id);
         $niveaux->update($request->all());
-        return redirect()->route('niveaux.index');
+        return redirect()->route('niveaux');
     }
 
     /**
@@ -84,6 +84,6 @@ class NiveauController extends Controller
         //
         $niveaux=Niveau::find($id);
         $niveaux->delete();
-        return redirect()->route('niveaux.index');
+        return redirect()->route('niveaux');
     }
 }

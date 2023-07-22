@@ -1,8 +1,11 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
 @section('contenue')
+
+      <li class=" btn btn-black "><a href="{{ url('etudiants/create') }}">Nouveau</a></li>
+
 <table id="example" class="table table-striped" style="width:100%">
     <thead>
       <tr>
@@ -24,7 +27,7 @@
             <td>{{$e->prenom}}</td>
             <td>{{$e->email}}</td>
             <td>{{$e->telephone}}</td>
-            <td>{{$e->niveau_etude}}</td>
+            <td>{{$e->nationalite->nationalite}}</td>
             <td> {{$e->niveau->libelle}}</td>
             <td>
                 <a href="{{url('etudiants/' .$e->id)}}" class="btn btn-success">Consulter</a>
@@ -38,7 +41,7 @@
                         confirmButtonText: 'Cool'
                       })" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-                <a href="{{ route('etudiants.edit', ['id'=>$e->id]) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ route('etudiants.edit',$e->id) }}" class="btn btn-warning">Editer</a>
             </td>
         </tr>
         @endforeach

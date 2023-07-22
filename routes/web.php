@@ -27,6 +27,7 @@ Route::get('/menu', function () {
 });
 Route::resource('categories', CategorieController::class);
 
+
 Route::resource('documents', DocumentController::class);
 
 Route::resource('etudiants', EtudiantController::class);

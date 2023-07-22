@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
     {{$titre}}
 @endsection
@@ -14,7 +14,7 @@
             </ul>
         </div>
     @endif
-        <form method="post" action="{{ route('documents.update', ['id' =>$document->id]) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('documents.update', $document->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">

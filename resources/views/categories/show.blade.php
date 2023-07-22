@@ -1,9 +1,8 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
-@section('contenue')
-<ul>
+@section('contenue')<ul>
     <li>Nom : {{$categorie->nom}} </li>
 </ul>
 @endsection

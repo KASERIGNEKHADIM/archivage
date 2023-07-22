@@ -2,9 +2,10 @@
 
 namespace App\Models;
 use App\Models\Niveau;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Nationalite;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Etudiant extends Model
 {
@@ -14,7 +15,7 @@ class Etudiant extends Model
         'prenom',
         'email',
         'telephone',
-        'nationalite',
+        'nationalite_id',
         'niveau_id',
     ];
 
@@ -26,6 +27,15 @@ class Etudiant extends Model
 public function niveau(): BelongsTo
 {
     return $this->belongsTo(Niveau::class, 'niveau_id');
+}
+/**
+ * Get the nationalite that owns the Etudiant
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
+public function nationalite(): BelongsTo
+{
+    return $this->belongsTo(Nationalite::class, 'nationalite_id');
 }
 }
 

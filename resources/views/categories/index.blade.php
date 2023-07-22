@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -17,10 +17,14 @@
         <tr>
             <th scope="row">{{$c->id}}</th>
             <td>{{$c->nom}}</td>
-            <td>{{$c->documents->count()}} :
-            @foreach ($c->documents as $d)
-<li>{{$d->nom}}</li>
+            <td>
+            @if ($c->documents)
+
+            {{ $c->documents->count()}} :
+
+            @foreach ($c->documents as $d)<li>{{$d->nom}}</li>
             @endforeach
+            @endif
             </td>
             <td>
                 <a href="{{url('categories/' .$c->id)}}" class="btn btn-success">Consulter</a>
@@ -34,11 +38,10 @@
                         confirmButtonText: 'Cool'
                       })" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-                <a href="{{ route('categories.edit', ['id'=>$c->id]) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ route('categories.edit',$c->id) }}" class="btn btn-warning">Editer</a>
             </td>
         </tr>
         @endforeach
     </tbody>
   </table>
-
 @endsection

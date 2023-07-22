@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -7,24 +7,22 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Etudiant</th>
-        <th scope="col">NOM</th>
-        <th scope="col">FICHIERS</th>
-        <th scope="col">Categorie</th>
+        <th scope="col">Libelle</th>
+        <th scope="col">description</th>
+        <th scope="col">Nationalite</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-        @foreach ($documents as $d)
+        @foreach ($pieces as $p)
         <tr>
-            <th scope="row">{{$d->id}}</th>
-            <td> {{$d->etudiant->nom}} {{$d->etudiant->prenom}}</td>
-            <td>{{$d->nom}}</td>
-            <td><a download="" href="{{ asset('storage/'.$d->chemin) }}" class="btn btn-primary" >Telecharger</a></td>
-            <td> {{$d->categorie->nom}}</td>
+            <th scope="row">{{$p->id}}</th>
+            <td>{{$p->libelle}}</td>
+            <td>{{$p->description}}</td>
+            <td> {{$p->nationalite->nationalite}}</td>
             <td>
-                <a href="{{url('documents/' .$d->id)}}" class="btn btn-success">Consulter</a>
-                <form action="{{url('documents/'.$d->id)}}" method="post" class="d-inline">
+                <a href="{{url('pieces/' .$p->id)}}" class="btn btn-success">Consulter</a>
+                <form action="{{url('pieces/'.$p->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button onclick="Swal.fire({
@@ -34,7 +32,7 @@
                         confirmButtonText: 'Cool'
                       })" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-                <a href="{{ route('documents.edit', ['id'=>$d->id]) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ route('pieces.edit', $p->id) }}" class="btn btn-warning">Editer</a>
             </td>
         </tr>
         @endforeach

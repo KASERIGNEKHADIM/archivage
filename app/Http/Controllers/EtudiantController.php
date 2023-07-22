@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Niveau;
+use App\Models\Document;
 use App\Models\Etudiant;
+use App\Models\Nationalite;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -27,7 +29,9 @@ class EtudiantController extends Controller
         //
         $titre='Ajouter un Etudiant';
         $niveaux=Niveau::all();
-        return view('etudiants.create',compact('titre','niveaux'));
+        $nationalites=Nationalite::all();
+        $etudiants=Etudiant::all();
+        return view('etudiants.create',compact('titre','niveaux','nationalites','etudiants'));
     }
 
     /**
@@ -47,6 +51,7 @@ class EtudiantController extends Controller
     {
         //
         $etudiant=Etudiant::find($id);
+        $document=Document::find($id);
         $titre='Détails de l etudiant';
         return view('etudiants.show',compact('etudiant','titre'));
     }

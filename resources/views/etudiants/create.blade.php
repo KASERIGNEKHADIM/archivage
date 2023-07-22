@@ -1,5 +1,4 @@
-@extends('modele')
-
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -8,7 +7,7 @@
 @csrf
 
 <div class="col-md-6 mx-auto shadow p-4">
-    <div class=" mb-3">
+    <div class=" mb-3 ">
         <label for="" class="form-label">Nom :  </label>
           <input type="text" class="form-control" name="nom" id="nom" >
     </div>
@@ -24,10 +23,13 @@
         <label for="" class="form-label">Telephone :</label>
           <input type="text" class="form-control" name="telephone" id="telephone">
     </div>
-    <div class=" mb-3">
-        <label for="" class="form-label">Nationalité :</label>
-          <input type="text" class="form-control" name="nationalite" id="nationalite">
-    </div>
+    <div class="mb-3">
+        Nationalité : <select name="nationalite_id" id="nationalite_id">
+            @foreach ($nationalites as $n)
+            <option class="" value="{{$n->id}}">{{$n->nationalite}} </option>
+            @endforeach
+        </select>
+        </div>
     <div class="mb-3">
         Niveau d'étude : <select name="niveau_id" id="niveau_id">
             @foreach ($niveaux as $n)

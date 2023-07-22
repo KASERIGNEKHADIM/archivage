@@ -1,4 +1,4 @@
-@extends('modele')
+@extends('layouts.master')
 @section('titre')
 {{$titre}}
 @endsection
@@ -7,8 +7,8 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Etudiant</th>
-        <th scope="col">NOM</th>
+        <th scope="col">ETUDIANTS</th>
+        <th scope="col">DOCUMENTS</th>
         <th scope="col">FICHIERS</th>
         <th scope="col">Categorie</th>
         <th scope="col">Action</th>
@@ -34,7 +34,7 @@
                         confirmButtonText: 'Cool'
                       })" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
-                <a href="{{ route('documents.edit', ['id'=>$d->id]) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ route('documents.edit', $d->id) }}" class="btn btn-warning">Editer</a>
             </td>
         </tr>
         @endforeach

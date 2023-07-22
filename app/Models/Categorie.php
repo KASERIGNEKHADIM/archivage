@@ -16,7 +16,7 @@ class Categorie extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function documents(): HasMany
+    public function documens(): HasMany
     {
         return $this->hasMany(Document::class);
     }
