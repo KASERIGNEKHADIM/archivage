@@ -20,10 +20,8 @@
             <td>{{$c->nom}}</td>
             <td>
             @if ($c->documents)
-
             {{ $c->documents->count()}} :
-
-            @foreach ($c->documents as $d)<li>{{$d->nom}}</li>
+            @foreach ($c->documents as $c)<li>{{$c->nom}}</li>
             @endforeach
             @endif
             </td>
