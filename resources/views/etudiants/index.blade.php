@@ -16,6 +16,7 @@
         <th scope="col">TELEPHONE</th>
         <th scope="col">NATIONALITE</th>
         <th scope="col">NIVEAU D'ETUDE</th>
+        <th scope="col"></th>
         <th scope="col">Action</th>
       </tr>
     </thead>

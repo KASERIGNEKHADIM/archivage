@@ -4,6 +4,6 @@
 @endsection
 @section('contenue')
 <ul>
-    <li>Nom : {{$nationalite->nationalite}} </li>
+    <li>Nom : {{$nationalites->nationalite}} </li>
 </ul>
 @endsection

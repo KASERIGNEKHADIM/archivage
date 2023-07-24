@@ -19,7 +19,12 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="libelle" class="form-label">Nom : </label>
-                <input value="{{$niveau->libelle}}" type="text" name="libelle" class="form-control" id="libelle"
+                <input value="{{$niveaux->libelle}}" type="text" name="libelle" class="form-control" id="libelle"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="libelle" class="form-label">Année scolaire : </label>
+                <input value="{{$niveaux->annee_scolaire}}" type="text" name="annee_scolaire" class="form-control" id="annee_scolaire"
                     aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>

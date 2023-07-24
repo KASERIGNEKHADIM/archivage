@@ -48,8 +48,8 @@ class NationaliteController extends Controller
     {
         //
         $nationalites=Nationalite::find($id);
-        $titre='Détails de l Nationalite';
-        return view('nationalites.show',compact('Nationalites','titre'));
+        $titre='Détails';
+        return view('nationalites.show',compact('nationalites','titre'));
     }
 
     /**
@@ -69,7 +69,7 @@ class NationaliteController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $nationalitesationalites=Nationalite::find($id);
+        $nationalites=Nationalite::find($id);
         $nationalites->update($request->all());
         return redirect()->route('nationalites.index');
     }
@@ -82,6 +82,6 @@ class NationaliteController extends Controller
         //
         $nationalites=Nationalite::find($id);
         $nationalites->delete();
-        return redirect()->route('nationalites.index');
+        return redirect()->route('nationalites');
     }
 }

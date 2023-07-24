@@ -3,6 +3,7 @@
 {{$titre}}
 @endsection
 @section('contenue')
+<li class=" btn btn-black "><a href="{{ url('pieces/create') }}">Nouveau</a></li>
 <table id="example" class="table table-striped" style="width:100%">
     <thead>
       <tr>

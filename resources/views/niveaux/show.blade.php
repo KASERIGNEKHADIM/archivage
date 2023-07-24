@@ -4,6 +4,7 @@
 @endsection
 @section('contenue')
 <ul>
-    <li>Nom : {{$niveau->libelle}} </li>
+    <li>Nom : {{$niveaux->libelle}} </li>
+    <li>Année scolaire : {{$niveaux->annee_scolaire}} </li>
 </ul>
 @endsection

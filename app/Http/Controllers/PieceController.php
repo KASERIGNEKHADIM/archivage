@@ -51,7 +51,7 @@ class PieceController extends Controller
         //
         $pieces=Piece::find($id);
         $titre='Détails de la piece ';
-        return view('piecess.show',compact('pieces','titre'));
+        return view('pieces.show',compact('pieces','titre'));
     }
 
     /**
@@ -86,6 +86,6 @@ class PieceController extends Controller
         //
         $piece=Piece::find($id);
         $piece->delete();
-        return redirect()->route('piece.index');
+        return redirect()->route('pieces.index');
     }
 }

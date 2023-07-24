@@ -14,12 +14,12 @@
             </ul>
         </div>
     @endif
-        <form method="post" action="{{ route('nationalites.update', ['id' => $nationalite->id]) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('nationalites.update',$nationalites->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="nom" class="form-label">Nationalité : </label>
-                <input value="{{$nationalite->nom}}" type="text" name="nationalite" class="form-control" id="nom"
+                <input value="{{$nationalites->nationalite}}" type="text" name="nationalite" class="form-control" id="nom"
                     aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>

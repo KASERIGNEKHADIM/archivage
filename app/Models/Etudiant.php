@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Niveau;
+use App\Models\Document;
 use App\Models\Nationalite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,6 +37,14 @@ public function niveau(): BelongsTo
 public function nationalite(): BelongsTo
 {
     return $this->belongsTo(Nationalite::class, 'nationalite_id');
+}
+/**
+ * Get all of the documents for the Etudiant
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+public function documents(){
+    return $this->hasMany(Document::class);
 }
 }
 
