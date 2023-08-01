@@ -9,7 +9,6 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">NOM</th>
-        <th scope="col">Documents</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -18,13 +17,6 @@
         <tr>
             <th scope="row">{{$c->id}}</th>
             <td>{{$c->nom}}</td>
-            <td>
-            @if ($c->documents)
-            {{ $c->documents->count()}} :
-            @foreach ($c->documents as $c)<li>{{$c->nom}}</li>
-            @endforeach
-            @endif
-            </td>
             <td>
                 <a href="{{url('categories/' .$c->id)}}" class="btn btn-success">Consulter</a>
                 <form action="{{url('categories/'.$c->id)}}" method="post" class="d-inline">

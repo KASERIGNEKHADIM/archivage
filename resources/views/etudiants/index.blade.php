@@ -15,8 +15,8 @@
         <th scope="col">EMAIL</th>
         <th scope="col">TELEPHONE</th>
         <th scope="col">NATIONALITE</th>
+        <th scope="col">DOCUMENTS</th>
         <th scope="col">NIVEAU D'ETUDE</th>
-        <th scope="col"></th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -29,6 +29,9 @@
             <td>{{$e->email}}</td>
             <td>{{$e->telephone}}</td>
             <td>{{$e->nationalite->nationalite}}</td>
+            <td> @foreach ($e->documents as $d)
+                <li>{{$d->nom}}</li>
+                       @endforeach</td>
             <td> {{$e->niveau->libelle}}</td>
             <td>
                 <a href="{{url('etudiants/' .$e->id)}}" class="btn btn-success">Consulter</a>
@@ -48,5 +51,4 @@
         @endforeach
     </tbody>
   </table>
-
 @endsection

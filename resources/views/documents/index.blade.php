@@ -3,24 +3,25 @@
 {{$titre}}
 @endsection
 @section('contenue')
-<li class=" btn btn-black "><a href="{{ url('documents/create') }}">Nouveau</a></li>
+ <a href="{{ url('documents/create') }}"  class="btn btn-primary ">Nouveau</a>
+
 <table id="example" class="table table-striped" style="width:100%">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">ETUDIANTS</th>
         <th scope="col">DOCUMENTS</th>
+        <th scope="col">ETUDIANTS</th>
         <th scope="col">FICHIERS</th>
         <th scope="col">Categorie</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-        @foreach ($documents as $d)
         <tr>
+            @foreach ($documents as $d)
             <th scope="row">{{$d->id}}</th>
-            <td> {{$d->etudiant->nom}} {{$d->etudiant->prenom}}</td>
             <td>{{$d->nom}}</td>
+            <td> {{$d->etudiant->nom}} {{$d->etudiant->prenom}}</td>
             <td><a download="" href="{{ asset('storage/'.$d->chemin) }}" class="btn btn-primary" >Telecharger</a></td>
             <td> {{$d->categorie->nom}}</td>
             <td>

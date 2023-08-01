@@ -3,21 +3,29 @@
 {{$titre}}
 @endsection
 @section('contenue')
+
 <ul>
     <li>Nom : {{$etudiant->nom}} </li>
     <li>Prenom : {{$etudiant->prenom}} </li>
     <li>Email : {{$etudiant->email}} </li>
     <li>Telephone : {{$etudiant->telephone}} </li>
-    <li>Document :@foreach ($etudiant->documents  as $item)
-        {{$item->nom}}
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">DOCUMENTS</th>
+              <th scope="col">FICHIER</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($etudiant->documents  as $item)
+            <tr>
+                <th scope="row">{{$item->id}}</th>
+                <td>{{$item->nom}}</td>
+                <td><a download="" href="{{ asset('storage/'.$item->chemin) }}" class="btn btn-primary" >Telecharger</a></td>
+                @endforeach
+                </tbody>
+                </table>
+            </ul>
 
-    @endforeach </li>
-    <li>Fichier :@foreach ($etudiant->documents  as $item)
-        {{$item->chemin  }}
-
-    @endforeach </li>
-    {{-- <li>Fichier : <a download="" href="{{ asset('storage/'.$documents->chemin) }}" class="btn btn-primary" >Telecharger</a></a> </li> --}}
-    {{-- <li>Categorie : {{$documents->categorie->id}}  {{$documents->categorie->nom}} </li> --}}
-
-</ul>
 @endsection
