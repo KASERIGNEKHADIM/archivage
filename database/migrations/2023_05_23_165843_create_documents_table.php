@@ -19,6 +19,9 @@ return new class extends Migration
       ->constrained();
       $table->foreignId('etudiant_id')
       ->constrained('etudiants');
+
+            $table->foreignId('piece_id')
+      ->constrained('pieces');
             $table->timestamps();
         });
     }

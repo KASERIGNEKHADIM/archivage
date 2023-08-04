@@ -18,6 +18,11 @@ class EtudiantController extends Controller
         //
         $etudiants=Etudiant::all();
         $titre='Listes des Etudiants';
+    //$piecesAramener=$etudiant->nationalite->pieces();
+    //$p=$etudiant->nationalite->pieces();
+
+
+
         return view('etudiants.index',compact('etudiants','titre'));
     }
 

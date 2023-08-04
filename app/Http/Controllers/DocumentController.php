@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Piece;
 use App\Models\Document;
 use App\Models\Etudiant;
 use App\Models\Categorie;
@@ -13,8 +14,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+
         $documents=Document::all();
+
         $titre='Listes des documents';
         return view('documents.index',compact('documents','titre'));
     }
@@ -28,7 +30,8 @@ class DocumentController extends Controller
         $titre='Ajouter un document';
         $categories=Categorie::all();
         $etudiants=Etudiant::all();
-        return view('documents.create',compact('titre','categories','etudiants'));
+        $pieces=Piece::all();
+        return view('documents.create',compact('titre','categories','etudiants','pieces'));
     }
 
     /**
@@ -41,7 +44,6 @@ class DocumentController extends Controller
         $data=$request->all();
         $data['chemin']=$request->chemin->store('cours');
         $documents=Document::create($data);
-
         return redirect()->route('documents.index');
     }
 

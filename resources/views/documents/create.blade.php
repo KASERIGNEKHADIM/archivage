@@ -37,6 +37,13 @@
             </select>
             </div>
             <div class="mb-3">
+                Piece : <select name="piece_id" id="piece_id">
+                    @foreach ($pieces as $p)
+                    <option value="{{$p->id}}">{{$p->libelle}}</option>
+                    @endforeach
+                </select>
+                </div>
+            <div class="mb-3">
                 Etudiant : <select name="etudiant_id" id="etudiant_id">
                     @foreach ($etudiants as $e)
                     <option class="" value="{{$e->id}}">{{$e->nom}} {{$e->prenom}}</option>

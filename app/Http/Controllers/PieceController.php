@@ -71,7 +71,7 @@ class PieceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
         $pieces=Piece::find($id);
         $pieces->update($request->all());
         return redirect()->route('pieces.index');
