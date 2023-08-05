@@ -20,7 +20,7 @@ class Document extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function categorie(): BelongsTo
+    public function categories(): BelongsTo
     {
         return $this->belongsTo(Categorie::class, 'categorie_id');
     }
@@ -32,4 +32,5 @@ class Document extends Model
     {
         return $this->belongsTo(Piece::class, 'piece_id');
     }
+
 }

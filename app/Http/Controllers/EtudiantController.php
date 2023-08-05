@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Piece;
 use App\Models\Niveau;
 use App\Models\Document;
 use App\Models\Etudiant;
@@ -15,15 +16,17 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        //
         $etudiants=Etudiant::all();
+        $pieces=Piece::all();
+        // les documents de chaque etudiants
+
+
+
+        //$pieces = Piece::pluck('libelle');
+
+
         $titre='Listes des Etudiants';
-    //$piecesAramener=$etudiant->nationalite->pieces();
-    //$p=$etudiant->nationalite->pieces();
-
-
-
-        return view('etudiants.index',compact('etudiants','titre'));
+        return view('etudiants.index',compact('etudiants','titre','pieces'));
     }
 
     /**

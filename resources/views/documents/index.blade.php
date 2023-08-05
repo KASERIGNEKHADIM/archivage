@@ -12,6 +12,7 @@
         <th scope="col">DOCUMENTS</th>
         <th scope="col">ETUDIANTS</th>
         <th scope="col">FICHIERS</th>
+
         <th scope="col">Categorie</th>
         <th scope="col">Action</th>
       </tr>
@@ -23,7 +24,7 @@
             <td>{{$d->nom}}</td>
             <td> {{$d->etudiant->nom}} {{$d->etudiant->prenom}}</td>
             <td><a download="" href="{{ asset('storage/'.$d->chemin) }}" class="btn btn-primary" >Telecharger</a></td>
-            <td> {{$d->categorie->nom}}</td>
+            <td> {{$d->categories->nom}}</td>
             <td>
                 <a href="{{url('documents/' .$d->id)}}" class="btn btn-success">Consulter</a>
                 <form action="{{url('documents/'.$d->id)}}" method="post" class="d-inline">

@@ -25,7 +25,7 @@
         @foreach ($etudiants as $e)
         <tr>
             <th scope="row">{{$e->id}}</th>
-            <td>{{$e->nom}}</td>
+           <td>{{$e->nom}}</td>
             <td>{{$e->prenom}}</td>
             <td>{{$e->email}}</td>
             <td>{{$e->telephone}}</td>
@@ -33,14 +33,16 @@
             <td> @foreach ($e->documents as $d)<li>{{$d->nom}}</li>@endforeach</td>
             <td>
 
-            @if ($e->documents->count()==7)
-             <span class="btn btn-success  text-sm rounded">document complet</span>
+                @php
+        $pms=$e->piecesManquantes();
 
-            @elseif ($r=7-$e->documents->count())
-                <span class="btn btn-danger  text-sm rounded">il vous manque {{$r}}</span>
-            @else
-            <span class="btn btn-danger  text-sm rounded">pas de document </span>
-            @endif
+        @endphp
+
+@foreach ($pms as $p)
+
+    <li>{{$p->libelle}}</li>
+                @endforeach
+
              </td>
             <td> {{$e->niveau->libelle}}</td>
             <td>

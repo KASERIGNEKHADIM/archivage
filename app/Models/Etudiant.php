@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Models;
+use App\Models\Piece;
 use App\Models\Niveau;
 use App\Models\Document;
 use App\Models\Nationalite;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,7 +48,27 @@ public function nationalite(): BelongsTo
 public function documents(){
     return $this->hasMany(Document::class);
 }
+
+public function piecesManquantes(){
+
+
+        $ds=[];
+
+        foreach ($this->documents as $d) {
+
+            $ds[]=$d->piece_id;
+
+        }
+        $pieces=Piece::pluck('id')->toArray();
+        $pm=array_diff($pieces,$ds);
+        // dd($pm);
+        $tpm= DB::table('pieces')
+        ->whereIn('id', $pm)
+        ->get()->toArray();
+       // dd($tpm);
+return $tpm;
+
 }
 
-
+}
 
