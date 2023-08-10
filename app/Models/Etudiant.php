@@ -54,11 +54,7 @@ public function piecesManquantes(){
 
         $ds=[];
 
-        foreach ($this->documents as $d) {
-
-            $ds[]=$d->piece_id;
-
-        }
+        foreach ($this->documents as $d) {    $ds[]=$d->piece_id; }
         $pieces=Piece::pluck('id')->toArray();
         $pm=array_diff($pieces,$ds);
         // dd($pm);

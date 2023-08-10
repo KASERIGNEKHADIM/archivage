@@ -16,7 +16,7 @@
         <th scope="col">TELEPHONE</th>
         <th scope="col">NATIONALITE</th>
         <th scope="col">DOCUMENTS</th>
-        <th scope="col">STATUS</th>
+        <th scope="col">DOCUMENTS MANQUANTS</th>
         <th scope="col">NIVEAU D'ETUDE</th>
         <th scope="col">Action</th>
       </tr>
@@ -54,4 +54,5 @@
         @endforeach
     </tbody>
   </table>
+  <li class=" btn btn-black "><a href="{{ url('etudiants/create') }}">Nouveau</a></li>
 @endsection
