@@ -4,7 +4,7 @@
 @endsection
 @section('contenue')
 
-      <li class=" btn btn-black "><a href="{{ url('etudiants/create') }}">Nouveau</a></li>
+<a href="{{ url('etudiants/create') }}"  class="btn btn-primary ">Nouveau</a>
 
 <table id="example" class="table table-striped" style="width:100%">
     <thead>
